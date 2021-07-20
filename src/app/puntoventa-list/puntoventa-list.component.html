@@ -1,1 +1,17 @@
-<p>puntoventa-list works!</p>
+<h2> Lista Puntos de Venta </h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Nombre Punto de Venta </th>
+            <th> Dirección Punto de Venta </th>
+            <th> Ciudad Punto de Venta </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let puntoventa of puntoventas" >
+            <td> {{puntoventa.nombrePventa}} </td>
+            <td> {{puntoventa.direccionPventa}} </td>
+            <td> {{puntoventa.ciudadPventa}} </td>
+        </tr>
+    </tbody>
+</table>
