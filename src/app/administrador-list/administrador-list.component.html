@@ -8,8 +8,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let administrador of administradores">
-            <td></td>
+        <tr *ngFor = "let administrador of administradores" >
+            <td> {{ administrador.nombreAdministrador}} </td>
+            <td> {{ administrador.usuario}} </td>
+            <td> {{ administrador.contrasenia}} </td>
         </tr>
     </tbody>
 </table>
