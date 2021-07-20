@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Administrador } from '../administrador';
+import { AdministradorService } from '../administrador.service'; 
 
 @Component({
   selector: 'app-administrador-list',
@@ -10,9 +11,16 @@ export class AdministradorListComponent implements OnInit {
 
   administradores!: Administrador[];
 
-  constructor() { }
+  constructor(private administradorServicio: AdministradorService) { }
 
   ngOnInit(): void {
+    this.getAdministradores();
+  }
+
+  private getAdministradores(){
+    this.administradorServicio.getAdministradoresList().subscribe(data => {
+      this.administradores = data;
+    });
   }
 
 }
