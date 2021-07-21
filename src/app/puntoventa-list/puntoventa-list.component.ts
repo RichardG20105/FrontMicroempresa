@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Puntoventa } from '../puntoventa'
+import { PuntoventaService } from '../puntoventa.service';
 
 @Component({
   selector: 'app-puntoventa-list',
@@ -10,21 +11,16 @@ export class PuntoventaListComponent implements OnInit {
 
   puntoventas!: Puntoventa[];
 
-  constructor() { }
+  constructor(private puntoventaService: PuntoventaService) { }
 
   ngOnInit(): void {
-    this.puntoventas = [{
-      "idPventa": 1,
-      "nombrePventa": "Dicosavi",
-      "direccionPventa": "5 de Junio",
-      "ciudadPventa": "Riobamba"
-    },
-    {
-      "idPventa": 2,
-      "nombrePventa": "Camari",
-      "direccionPventa": "Tarqui",
-      "ciudadPventa": "Riobamba"
-    }];
+    this.getPuntoVenta();
+  }
+
+  private getPuntoVenta(){
+    this.puntoventaService.getPuntoVentaLista().subscribe(data => {
+      this.puntoventas = data;
+    })
   }
 
 }
