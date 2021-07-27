@@ -36,4 +36,8 @@ export class PuntoventaListComponent implements OnInit {
     })
   }
 
+  createPuntoventa(){
+    this.router.navigate(['create-puntoventa']);
+  }
+
 }
