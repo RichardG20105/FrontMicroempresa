@@ -5,6 +5,7 @@
             <th> Nombre Punto de Venta </th>
             <th> Dirección Punto de Venta </th>
             <th> Ciudad Punto de Venta </th>
+            <th> Acciones </th>
         </tr>
     </thead>
     <tbody>
@@ -12,6 +13,10 @@
             <td> {{puntoventa.nombrePventa}} </td>
             <td> {{puntoventa.direccionPventa}} </td>
             <td> {{puntoventa.ciudadPventa}} </td>
+            <td>
+                <button (click) = "updatePuntoventa(puntoventa.idPventa)" class = "btn btn-info"> Actualizar </button>
+                <button (click) = "deletePuntoventa(puntoventa.idPventa)" class = "btn btn-danger" style="margin-left: 10px"> Eliminar </button> 
+            </td> 
         </tr>
     </tbody>
 </table>

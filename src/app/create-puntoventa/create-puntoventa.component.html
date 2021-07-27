@@ -1,0 +1,26 @@
+<div class="col-md-6 offset-md-3">
+<h3> Crear Nuevo Punto de Venta </h3>
+<form (ngSubmit) = "onSubmit()">
+
+   <div class="form-group">
+        <label> Nombre del Punto de Venta </label>
+        <input type="text" class="form-control" id = "NombrePventa"
+            [(ngModel)] = "puntoventa.nombrePventa" name = "NombrePventa">         
+   </div> 
+
+   <div class="form-group">
+        <label> Dirección del Punto de Venta </label>
+        <input type="text" class="form-control" id = "DireccionPventa"
+            [(ngModel)] = "puntoventa.direccionPventa" name = "DireccionPventa">         
+    </div>
+
+    <div class="form-group">
+        <label> Ciudad del Punto de Venta </label>
+        <input type="text" class="form-control" id = "CiudadPventa"
+            [(ngModel)] = "puntoventa.ciudadPventa" name = "CiudadPventa">         
+    </div>
+    
+    <button class="btn btn-success" type="submit"> Guardar </button>
+
+</form>
+</div>
