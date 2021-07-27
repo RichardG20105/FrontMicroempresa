@@ -9,6 +9,8 @@ import { PuntoventaListComponent } from './puntoventa-list/puntoventa-list.compo
 import { AdministradorListComponent } from './administrador-list/administrador-list.component';
 import { CreatePuntoventaComponent } from './create-puntoventa/create-puntoventa.component';
 import { UpdatePuntoventaComponent } from './update-puntoventa/update-puntoventa.component';
+import { CreateAdministradorComponent } from './create-administrador/create-administrador.component';
+import { UpdateAdministradorComponent } from './update-administrador/update-administrador.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UpdatePuntoventaComponent } from './update-puntoventa/update-puntoventa
     PuntoventaListComponent,
     AdministradorListComponent,
     CreatePuntoventaComponent,
-    UpdatePuntoventaComponent
+    UpdatePuntoventaComponent,
+    CreateAdministradorComponent,
+    UpdateAdministradorComponent
   ],
   imports: [
     BrowserModule,

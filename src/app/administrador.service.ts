@@ -12,6 +12,22 @@ export class AdministradorService {
   constructor( private httpClient: HttpClient) { }
 
   getAdministradoresList(): Observable<Administrador[]>{
-    return this.httpClient.get<Administrador[]>(`${this.baseUrl}`+'/buscarAdministrador');
+    return this.httpClient.get<Administrador[]>(`${this.baseUrl}`+'buscarAdministrador');
+  }
+
+  createAdministrador(administrador: Administrador): Observable<Object>{
+    return this.httpClient.post(`${this.baseUrl}`+'crearAdministrador',administrador);
+  }
+
+  getAdministradorId(id: number): Observable<Administrador>{
+    return this.httpClient.get<Administrador>(`${this.baseUrl}`+'buscarAdministrador/'+`${id}`);
+  }
+
+  updateAdministrador(id: number, administrador: Administrador): Observable<Object>{
+    return this.httpClient.put(`${this.baseUrl}`+'modificarAdministrador/'+`${id}`,administrador);
+  }
+
+  deleteAdministrador(id: number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseUrl}`+'borrarAdministrador/'+`${id}`);
   }
 }
