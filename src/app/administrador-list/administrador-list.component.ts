@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Administrador } from '../administrador';
 import { AdministradorService } from '../administrador.service'; 
 
@@ -11,7 +12,8 @@ export class AdministradorListComponent implements OnInit {
 
   administradores!: Administrador[];
 
-  constructor(private administradorServicio: AdministradorService) { }
+  constructor(private administradorServicio: AdministradorService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAdministradores();
@@ -23,4 +25,17 @@ export class AdministradorListComponent implements OnInit {
     });
   }
 
+  createAdministrador(){
+    this.router.navigate(['crearAdministrador']);
+  }
+  updateAdministrador(id: number){
+    this.router.navigate(['actualizarAdministrador',id]);
+  }
+
+  deleteAdministrador(id: number){
+    this.administradorServicio.deleteAdministrador(id).subscribe(data => {
+      console.log(data);
+      this.getAdministradores();
+    });
+  }
 }

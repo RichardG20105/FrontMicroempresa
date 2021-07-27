@@ -1,0 +1,26 @@
+<div class="col-md-8 offset-md-3">
+    <h3>Modificar Administrador</h3>
+    <form (ngSubmit) = "onSubmit()">
+
+        <div class="form-group">
+            <label> Nombre: </label>
+            <input type="text" class="form-control" id="NombreAdministrador"
+                [(ngModel)] = "administrador.nombreAdministrador" name = "NombreAdministrador">
+        </div>
+
+        <div class="form-group">
+            <label> Usuario: </label>
+            <input type="text" class="form-control" id="Usuario"
+                [(ngModel)] = "administrador.usuario" name = "Usuario">
+        </div>
+
+        <div class="form-group">
+            <label for="Contrasenia"> Contraseña: </label>
+            <input type="text" class="form-control" id="Contrasenia"
+                [(ngModel)] = "administrador.contrasenia" name = "Contrasenia">
+        </div>
+
+        <button class="btn btn-success" type="submit">Guardar</button>
+        
+    </form>
+</div>

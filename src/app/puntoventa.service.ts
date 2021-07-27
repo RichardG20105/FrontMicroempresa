@@ -15,4 +15,5 @@ export class PuntoventaService {
   getPuntoVentaLista(): Observable<Puntoventa[]>{
     return this.httpClient.get<Puntoventa[]>(`${this.baseURL}`);
   }
+
 }
