@@ -6,6 +6,9 @@ import { UpdatePuntoventaComponent } from './update-puntoventa/update-puntoventa
 import { CreateAdministradorComponent } from './create-administrador/create-administrador.component';
 import { PuntoventaListComponent } from './puntoventa-list/puntoventa-list.component';
 import { UpdateAdministradorComponent } from './update-administrador/update-administrador.component';
+import { ProductoListComponent } from './producto-list/producto-list.component';
+import { CreateProductoComponent } from './create-producto/create-producto.component';
+import { UpdateProductoComponent } from './update-producto/update-producto.component';
 
 const routes: Routes = [
   {path: 'administradores', component: AdministradorListComponent},
@@ -14,6 +17,9 @@ const routes: Routes = [
   {path: 'puntoventas', component: PuntoventaListComponent},
   {path: 'create-puntoventa', component: CreatePuntoventaComponent},
   {path: 'update-puntoventa/:id', component: UpdatePuntoventaComponent},
+  {path: 'productos', component:ProductoListComponent},
+  {path: 'create-producto', component:CreateProductoComponent},
+  {path: 'update-producto/:id',component:UpdateProductoComponent},
   {path: '', redirectTo: 'administradores', pathMatch:'full'}
 ];
 

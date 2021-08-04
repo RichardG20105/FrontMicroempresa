@@ -11,6 +11,9 @@ import { CreatePuntoventaComponent } from './create-puntoventa/create-puntoventa
 import { UpdatePuntoventaComponent } from './update-puntoventa/update-puntoventa.component';
 import { CreateAdministradorComponent } from './create-administrador/create-administrador.component';
 import { UpdateAdministradorComponent } from './update-administrador/update-administrador.component';
+import { ProductoListComponent } from './producto-list/producto-list.component';
+import { CreateProductoComponent } from './create-producto/create-producto.component';
+import { UpdateProductoComponent } from './update-producto/update-producto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { UpdateAdministradorComponent } from './update-administrador/update-admi
     CreatePuntoventaComponent,
     UpdatePuntoventaComponent,
     CreateAdministradorComponent,
-    UpdateAdministradorComponent
+    UpdateAdministradorComponent,
+    ProductoListComponent,
+    CreateProductoComponent,
+    UpdateProductoComponent
   ],
   imports: [
     BrowserModule,
