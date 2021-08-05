@@ -1,0 +1,22 @@
+<h2 class="text-center">Productos</h2>
+
+<button (click)="createProducto()" class="btn btn-primary">Crear Nuevo</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Foto</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let producto of productos" >
+            <td> {{ producto.nombreProducto }} </td>
+            <td> <a href="#"><img class="card-img-top img-responsive" src="{{ 'http://localhost:8080/uploads/'+producto.fotoProducto}}" style="height: 100px; width: 200px;"></a></td>
+            <td>
+                <button (click) = "updateProducto(producto.idProducto)" class = "btn btn-info" style="margin-left: 10px">Actualizar</button>
+                <button (click) = "deleteProducto(producto.idProducto)" class = "btn btn-danger" style="margin-left: 10px">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
