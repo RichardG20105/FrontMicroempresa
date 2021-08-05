@@ -11,6 +11,7 @@ import { CreatePuntoventaComponent } from './create-puntoventa/create-puntoventa
 import { UpdatePuntoventaComponent } from './update-puntoventa/update-puntoventa.component';
 import { CreateAdministradorComponent } from './create-administrador/create-administrador.component';
 import { UpdateAdministradorComponent } from './update-administrador/update-administrador.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UpdateAdministradorComponent } from './update-administrador/update-admi
     CreatePuntoventaComponent,
     UpdatePuntoventaComponent,
     CreateAdministradorComponent,
-    UpdateAdministradorComponent
+    UpdateAdministradorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
