@@ -23,6 +23,10 @@ export class AdministradorService {
     return this.httpClient.get<Administrador>(`${this.baseUrl}`+'buscarAdministrador/'+`${id}`);
   }
 
+  getAdministradorSesion(usuario: String,contrasenia: String): Observable<boolean>{
+    return this.httpClient.get<boolean>(`${this.baseUrl}`+'comprobarSesion/'+`${usuario}`+'/'+`${contrasenia}`);
+  }
+
   updateAdministrador(id: number, administrador: Administrador): Observable<Object>{
     return this.httpClient.put(`${this.baseUrl}`+'modificarAdministrador/'+`${id}`,administrador);
   }

@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { ProductoListComponent } from './producto-list/producto-list.component';
 import { CreateProductoComponent } from './create-producto/create-producto.component';
 import { UpdateProductoComponent } from './update-producto/update-producto.component';
+import { LogoutComponent } from './logout/logout.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UpdateProductoComponent } from './update-producto/update-producto.compo
     LoginComponent,
     ProductoListComponent,
     CreateProductoComponent,
-    UpdateProductoComponent
+    UpdateProductoComponent,
+    LogoutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
