@@ -1,0 +1,27 @@
+.text-center{
+    padding: 5px;
+    margin-top: 10px;
+}
+.container button{
+    margin-bottom: 10px;
+}
+.container table{
+    text-align: center;
+   }
+   .table-striped tbody tr:nth-of-type(odd){
+    background-color: rgb(237,245,245);
+   }
+   .table-hover tbody tr:hover{
+    background-color:rgba(204,204,204,95);
+   }
+    .thead-blue{
+   background-color: #0d23ec;
+   color: #FFFFFF;
+  }
+  #texto{
+      font-size: 18px;
+      padding-top: 30px;
+  }
+  .container button{
+      margin-top: 25px;
+  }

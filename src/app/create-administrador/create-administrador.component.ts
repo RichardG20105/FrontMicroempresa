@@ -34,5 +34,5 @@ export class CreateAdministradorComponent implements OnInit {
   onSubmit(){
     console.log(this.administrador);
     this.saveAdministrador();
-  }
+  }  
 }

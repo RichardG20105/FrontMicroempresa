@@ -10,13 +10,12 @@ export class AuthenticationService {
   
   constructor(private administradorService: AdministradorService) { }
 
-  aunthenticate(usuario: string, contrasenia: string){
+  aunthenticate(usuario: any, contrasenia: any){
     if(this.administradorService.getAdministradorSesion(usuario, contrasenia)){
       sessionStorage.setItem('usuario', usuario);
       return true;
-    } else{
-      return false;
     }
+    return false;
   }
 
   isUserLoggedIn(){

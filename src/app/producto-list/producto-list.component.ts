@@ -33,9 +33,11 @@ export class ProductoListComponent implements OnInit {
   }
 
   deleteProducto(id: number){
-    this.productoService.deleteProducto(id).subscribe(data => {
-      console.log(data);
-      this.getProductos();
-    })
+    if(confirm('Desea eliminar el Producto?')){
+      this.productoService.deleteProducto(id).subscribe(data => {
+        console.log(data);
+        this.getProductos();
+      });
+    }
   }
 }

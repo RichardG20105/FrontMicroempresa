@@ -17,6 +17,9 @@ import { CreateProductoComponent } from './create-producto/create-producto.compo
 import { UpdateProductoComponent } from './update-producto/update-producto.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HeaderComponent } from './header/header.component';
+import { DialogoConfirmacionComponent } from './dialogo-confirmacion/dialogo-confirmacion.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -32,15 +35,19 @@ import { HeaderComponent } from './header/header.component';
     CreateProductoComponent,
     UpdateProductoComponent,
     LogoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    DialogoConfirmacionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[DialogoConfirmacionComponent]
 })
 export class AppModule { }

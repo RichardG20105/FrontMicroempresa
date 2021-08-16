@@ -1,0 +1,13 @@
+.container-inputs{
+    border:none;
+    padding: 10px;
+}
+.container-button{
+    border: none;
+    margin-top: 25px;
+}
+.container-form{
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 50px;
+}

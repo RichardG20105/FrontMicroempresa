@@ -30,10 +30,13 @@ export class PuntoventaListComponent implements OnInit {
   }
 
   deletePuntoventa(id: number){
-    this.puntoventaService.deletePuntoventa(id).subscribe( data => {
-      console.log(data);
-      this.getPuntoVenta();
-    })
+    if(confirm('Desea eliminar el Punto de Venta?')){
+      this.puntoventaService.deletePuntoventa(id).subscribe( data => {
+        console.log(data);
+        this.getPuntoVenta();
+      });
+    }
+    
   }
 
   createPuntoventa(){

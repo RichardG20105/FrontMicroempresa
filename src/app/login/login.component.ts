@@ -9,8 +9,8 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  usuario!: string;
-  contrasenia!: string;
+  usuario!: String;
+  contrasenia!: String;
   invalidLogin = false;
   constructor(private router: Router, private login: AuthenticationService) { }
 
@@ -19,11 +19,9 @@ export class LoginComponent implements OnInit {
 
   checkLogin(){
     if(this.login.aunthenticate(this.usuario, this.contrasenia) === true){
+      this.invalidLogin = false
       this.router.navigate([''])
-      this.invalidLogin = false;
     }
-    else{
-      this.invalidLogin = true;
-    }
+    this.invalidLogin = true
   }
 }

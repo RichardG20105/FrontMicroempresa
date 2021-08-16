@@ -1,26 +1,26 @@
-<div class="col-md-6 offset-md-3">
-    <h3> Modificar Punto de Venta </h3>
-    <form (ngSubmit) = "onSubmit()">
+<div class="container-form">
+    <form class="text-center border p-5 bg-light" (ngSubmit) = "onSubmit()">
+        <p class="h4 mb-4"> Modificar Punto de Venta </p>
+        <div class="container-inputs">
+            <div class="form-group">
+                <input type="text" class="form-control mb-4" id = "NombrePventa"
+                [(ngModel)] = "puntoventa.nombrePventa" name = "NombrePventa" placeholder="Nombre del Punto de Venta">         
+            </div> 
     
-       <div class="form-group">
-            <label> Nombre del Punto de Venta </label>
-            <input type="text" class="form-control" id = "NombrePventa"
-                [(ngModel)] = "puntoventa.nombrePventa" name = "NombrePventa">         
-       </div> 
+            <div class="form-group">
+                <input type="text" class="form-control mb-4" id = "DireccionPventa"
+                [(ngModel)] = "puntoventa.direccionPventa" name = "DireccionPventa" placeholder="Dirección del Punto de Venta">         
+            </div>
     
-       <div class="form-group">
-            <label> Dirección del Punto de Venta </label>
-            <input type="text" class="form-control" id = "DireccionPventa"
-                [(ngModel)] = "puntoventa.direccionPventa" name = "DireccionPventa">         
-        </div>
-    
-        <div class="form-group">
-            <label> Ciudad del Punto de Venta </label>
-            <input type="text" class="form-control" id = "CiudadPventa"
-                [(ngModel)] = "puntoventa.ciudadPventa" name = "CiudadPventa">         
+            <div class="form-group">
+                <input type="text" class="form-control mb-4" id = "CiudadPventa"
+                [(ngModel)] = "puntoventa.ciudadPventa" name = "CiudadPventa" placeholder="Ciudad del Punto de Venta">         
+            </div>
         </div>
         
-        <button class="btn btn-success" type="submit"> Guardar </button>
-    
+        <div class="container-button">
+            <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
+            <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToPuntoventaList()">Cancelar</button>
+        </div>  
     </form>
-    </div>
+</div>
