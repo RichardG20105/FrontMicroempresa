@@ -9,19 +9,14 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  usuario!: String;
-  contrasenia!: String;
-  invalidLogin = false;
-  constructor(private router: Router, private login: AuthenticationService) { }
+  usuario!: string;
+  contrasenia!: string;
+  constructor(private login: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   checkLogin(){
-    if(this.login.aunthenticate(this.usuario, this.contrasenia) === true){
-      this.invalidLogin = false
-      this.router.navigate([''])
-    }
-    this.invalidLogin = true
+    this.login.aunthenticate(this.usuario, this.contrasenia)
   }
 }

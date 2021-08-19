@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'update-producto/:id',component:UpdateProductoComponent, canActivate:[AuthGuardService]},
   {path: 'login', component:LoginComponent},
   {path: 'logout',component:LogoutComponent, canActivate:[AuthGuardService]},
-  {path: '', redirectTo: 'administradores', pathMatch:'full'}
+  {path: '**', redirectTo: 'administradores', pathMatch:'full'}
 ];
 
 @NgModule({

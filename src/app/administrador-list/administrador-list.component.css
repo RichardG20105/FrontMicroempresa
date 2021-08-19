@@ -7,6 +7,7 @@
 }
 .container table{
     text-align: center;
+    padding: 10px;
    }
    .table-striped tbody tr:nth-of-type(odd){
     background-color: rgb(237,245,245);
