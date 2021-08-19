@@ -11,12 +11,19 @@ export class LoginComponent implements OnInit {
 
   usuario!: string;
   contrasenia!: string;
-  constructor(private login: AuthenticationService) { }
+  constructor(private login: AuthenticationService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
   checkLogin(){
     this.login.aunthenticate(this.usuario, this.contrasenia)
+  }
+
+  checkSession(){
+    let user = sessionStorage.getItem('usuario')
+    if(user != null){
+      this.route.navigate(['']);
+    }
   }
 }

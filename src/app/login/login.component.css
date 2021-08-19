@@ -4,6 +4,7 @@
 .container{
 height: 100%;
 align-content: center;
+margin-top: 150px;
 }
 
 .card{
@@ -72,7 +73,7 @@ width: 100px;
 
 .login_btn:hover{
 color: black;
-background-color: white;
+background-color: rgb(255, 255, 255);
 }
 
 .links{
