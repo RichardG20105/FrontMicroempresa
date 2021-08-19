@@ -25,5 +25,6 @@ export class LoginComponent implements OnInit {
     if(user != null){
       this.route.navigate(['']);
     }
+    return true;
   }
 }
