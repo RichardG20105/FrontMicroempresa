@@ -1,0 +1,27 @@
+<div class="sidenav" *ngIf="loginService.isUserLoggedIn()">
+    <div class="logo">
+        <a href="/" class="simple-text logo-mini">
+            <div class="logo-img">
+                <img src="./assets/images/angular2-logo-white.png" />
+            </div>
+        </a>
+        <a href="/" class="simple-text logo-normal">
+            Pagina Administrativa
+        </a>
+        
+    </div>
+    <ul class = "nav">
+        <li class="active">
+            <a *ngIf="loginService.isUserLoggedIn()" routerLink="administradores"><i class="fas fa-user-shield"></i> Administradores </a>
+        </li>
+        <li>
+            <a *ngIf="loginService.isUserLoggedIn()" routerLink="puntoventas"><i class="fas fa-location-arrow"></i> Puntos de Venta </a>
+        </li>
+        <li>
+            <a *ngIf="loginService.isUserLoggedIn()" routerLink="productos"><i class="fas fa-cookie-bite"></i> Productos </a>
+        </li>
+        <li>
+            <a *ngIf="loginService.isUserLoggedIn()" routerLink="logout"><i class="fas fa-power-off"></i> Salir </a>
+        </li>
+    </ul>
+</div>

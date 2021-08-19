@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms';
@@ -20,6 +20,9 @@ import { HeaderComponent } from './header/header.component';
 import { DialogoConfirmacionComponent } from './dialogo-confirmacion/dialogo-confirmacion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { MaterialModule } from './material/material.module';
     UpdateProductoComponent,
     LogoutComponent,
     HeaderComponent,
-    DialogoConfirmacionComponent
+    DialogoConfirmacionComponent,
+    SideNavComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +49,14 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   entryComponents:[DialogoConfirmacionComponent]
 })
 export class AppModule { }

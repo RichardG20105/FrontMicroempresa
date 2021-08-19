@@ -1,8 +1,13 @@
+.row{
+    padding-left: 20px;
+    padding-right: 30px;
+}
 .text-center{
     padding: 5px;
     margin-top: 10px;
 }
 .container button{
+    margin-left: 10px;
     margin-bottom: 10px;
 }
 .container table{
