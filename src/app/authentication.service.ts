@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Administrador } from './administrador';
 import { AdministradorService } from './administrador.service';
 
@@ -6,24 +7,26 @@ import { AdministradorService } from './administrador.service';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  res = false
+  constructor(private administradorService: AdministradorService, private router: Router) { }
 
+  aunthenticate(usuario: string, contrasenia: string){
+    this.administradorService.getAdministradorSesion(usuario, contrasenia).subscribe(data =>{
+      sessionStorage.setItem('usuario', data.usuario)
+      this.habilitar();
+    },
+    error => console.log(error))
+    console.log(sessionStorage)
+  }
   
-  constructor(private administradorService: AdministradorService) { }
-
-  aunthenticate(usuario: any, contrasenia: any){
-    if(this.administradorService.getAdministradorSesion(usuario, contrasenia)){
-      sessionStorage.setItem('usuario', usuario);
-      return true;
-    }
-    return false;
+  habilitar(){
+    this.router.navigate(['']);
   }
 
   isUserLoggedIn(){
     let user = sessionStorage.getItem('usuario')
-    console.log(!(user === null))
     return !(user === null)
   }
-
   logOut(){
     sessionStorage.removeItem('usuario')
   }
