@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms';
 
@@ -16,13 +17,14 @@ import { ProductoListComponent } from './producto-list/producto-list.component';
 import { CreateProductoComponent } from './create-producto/create-producto.component';
 import { UpdateProductoComponent } from './update-producto/update-producto.component';
 import { LogoutComponent } from './logout/logout.component';
-import { HeaderComponent } from './header/header.component';
-import { DialogoConfirmacionComponent } from './dialogo-confirmacion/dialogo-confirmacion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { PaginatePipe } from './pipes/paginate.pipe';
+import { CustomMatPaginatorIntl } from './paginato-es';
 
 @NgModule({
   declarations: [
@@ -38,25 +40,28 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     CreateProductoComponent,
     UpdateProductoComponent,
     LogoutComponent,
-    HeaderComponent,
-    DialogoConfirmacionComponent,
     SideNavComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    {provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl}
+  ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  entryComponents:[DialogoConfirmacionComponent]
+  entryComponents:[]
 })
 export class AppModule { }

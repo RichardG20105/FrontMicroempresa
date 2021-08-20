@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Administrador } from '../administrador';
 import { AdministradorService } from '../administrador.service'; 
-import { DialogoService } from '../dialogo.service';
 
 @Component({
   selector: 'app-administrador-list',
@@ -11,11 +11,10 @@ import { DialogoService } from '../dialogo.service';
 })
 export class AdministradorListComponent implements OnInit {
 
-  administradores!: Administrador[];
+  administradores: Administrador[] = [];
 
   constructor(private administradorServicio: AdministradorService,
-    private router: Router,
-    private dialogService: DialogoService) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAdministradores();
@@ -46,9 +45,16 @@ export class AdministradorListComponent implements OnInit {
     });*/
     if(confirm('Desea eliminar el Administrador?')){
       this.administradorServicio.deleteAdministrador(id).subscribe(data => {
-        console.log(data);
         this.getAdministradores();
       });
     }
   }
+
+  handlePage(e: PageEvent){
+    this.page_size = e.pageSize
+    this.page_number = e.pageIndex + 1
+  }
+  page_size: number = 5
+  page_number: number = 1
+  pageSizeOptions = [5, 10, 20, 50, 100]
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
@@ -10,7 +11,7 @@ import { ProductoService } from '../producto.service';
 })
 export class ProductoListComponent implements OnInit {
 
-  productos!: Producto[];
+  productos: Producto[] = [];
   constructor(private productoService: ProductoService,
     private router: Router) { }
 
@@ -40,4 +41,12 @@ export class ProductoListComponent implements OnInit {
       });
     }
   }
+
+  handlePage(e: PageEvent){
+    this.page_size = e.pageSize
+    this.page_number = e.pageIndex + 1
+  }
+  page_size: number = 5
+  page_number: number = 1
+  pageSizeOptions = [5, 10, 20, 50, 100]
 }

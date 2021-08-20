@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Puntoventa } from '../puntoventa'
 import { PuntoventaService } from '../puntoventa.service';
@@ -10,7 +11,7 @@ import { PuntoventaService } from '../puntoventa.service';
 })
 export class PuntoventaListComponent implements OnInit {
 
-  puntoventas!: Puntoventa[];
+  puntoventas: Puntoventa[] = [];
 
   constructor(private puntoventaService: PuntoventaService,
     private router: Router) { }
@@ -43,4 +44,11 @@ export class PuntoventaListComponent implements OnInit {
     this.router.navigate(['create-puntoventa']);
   }
 
+  handlePage(e: PageEvent){
+    this.page_size = e.pageSize
+    this.page_number = e.pageIndex + 1
+  }
+  page_size: number = 5
+  page_number: number = 1
+  pageSizeOptions = [5, 10, 20, 50, 100]
 }
