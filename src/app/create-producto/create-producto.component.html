@@ -1,15 +1,22 @@
 <div class="container-form">
-    <form class="text-center border p-5 bg-light" (ngSubmit) = "onSubmit()" method="POST" enctype="multipart/form-data">
+    <form class="text-center border p-5 bg-light" (ngSubmit) = "onSubmit()" method="POST" enctype="multipart/form-data" [formGroup]="productoForm">
         <p class="h4 mb-4">Crear Producto</p>
         <div class="row" style="height: 410px;">
         <div class="container-inputs">
             <div class="form-group">
-                <input type="text" class="form-control mb-4" id="NombreProducto" 
-                    [(ngModel)]="producto.nombreProducto" name="NombreProducto" placeholder="Nombre del Producto">
+                <input type="text" class="form-control mb-4" formControlName="NombreProducto"
+                    [(ngModel)]="producto.nombreProducto" placeholder="Nombre del Producto">
+                <span *ngIf="!NombreProducto.valid && (NombreProducto.touched || productoSubmit)" class="error-block">
+                Porfavor ingrese un Nombre de Producto
+                </span>
             </div>
             <div class="form-group">
                 <p class="text-justify font-weight-normal mb-4">Foto del Producto</p>
-                <input type="file" id="file" name="FotoProducto" class="form-control" (change)="onFileChanged($event)">
+                <input type="file" id="file" name="FotoProducto" class="form-control" accept="image/**"
+                    formControlName="FotoProducto" (change)="onFileChanged($event)">
+                <span *ngIf="!FotoProducto.valid && (FotoProducto.touched || productoSubmit)" class="error-block">
+                No se a subido ninguna imagen
+                </span>
             </div>
         </div>
         <div class="container-button">

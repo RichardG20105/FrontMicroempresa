@@ -35,12 +35,13 @@ export class UpdateProductoComponent implements OnInit {
   }
 
   updateProducto(){
-    const imagenSubir = new FormData();
-    imagenSubir.append('file',this.imagenSeleccionada);
-    this.productoService.modificarImagen(imagenSubir, this.id).subscribe(data =>{
+    const imagenSubir = new FormData(); 
+    if(this.imagenSeleccionada){
+      imagenSubir.append('file',this.imagenSeleccionada);
+      this.productoService.modificarImagen(imagenSubir, this.id).subscribe(data =>{
 
-    },error => console.log(error));
-
+      },error => console.log(error));
+    }
     this.productoService.updateProducto(this.id, this.producto).subscribe(data => {
       this.goToProductoList();
     }, error => console.log(error));

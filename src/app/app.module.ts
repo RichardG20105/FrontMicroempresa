@@ -1,8 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'; 
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { CustomMatPaginatorIntl } from './paginato-es';
+import { AlertifyService } from './alertify.service';
+import { HttpErrorInterceptorService } from './httperror-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -50,13 +52,21 @@ import { CustomMatPaginatorIntl } from './paginato-es';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatIconModule,
     MatPaginatorModule
   ],
   providers: [
-    {provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl}
+    { provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptorService,
+      multi: true
+    },
+    { provide: MatPaginatorIntl,
+      useClass: CustomMatPaginatorIntl
+    },
+    AlertifyService
   ],
   bootstrap: [AppComponent],
   schemas: [
