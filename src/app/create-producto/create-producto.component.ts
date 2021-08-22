@@ -17,8 +17,12 @@ export class CreateProductoComponent implements OnInit {
   productoForm!: FormGroup;
   productoSubmit!: boolean;
 
-  constructor(private productoService: ProductoService,
-    private router: Router, private fb: FormBuilder, private alertify: AlertifyService) { }
+  constructor(
+    private productoService: ProductoService,
+    private router: Router, 
+    private fb: FormBuilder, 
+    private alertify: AlertifyService
+  ) { }
 
   ngOnInit(): void {
     this.CreateProductoForm();

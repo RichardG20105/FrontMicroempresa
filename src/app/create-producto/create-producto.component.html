@@ -7,7 +7,7 @@
                 <input type="text" class="form-control mb-4" formControlName="NombreProducto"
                     [(ngModel)]="producto.nombreProducto" placeholder="Nombre del Producto">
                 <span *ngIf="!NombreProducto.valid && (NombreProducto.touched || productoSubmit)" class="error-block">
-                Porfavor ingrese un Nombre de Producto
+                Falta ingresar el nombre del producto
                 </span>
             </div>
             <div class="form-group">

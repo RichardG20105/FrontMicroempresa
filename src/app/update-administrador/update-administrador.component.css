@@ -15,3 +15,9 @@
     padding-right: 300px;
     padding-top: 50px;
 }
+label{
+    text-align: left;
+}
+h4{
+    text-align: justify;
+}

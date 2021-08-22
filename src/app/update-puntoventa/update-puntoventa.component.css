@@ -4,14 +4,21 @@
 }
 .container-inputs{
     border:none;
-    padding: 10px;
+    padding: 10%;
 }
 .container-button{
     border: none;
-    margin-top: 25px;
+    margin-top: 10%;
 }
 .container-form{
-    padding-left: 300px;
-    padding-right: 300px;
-    padding-top: 50px;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+label{
+    text-align: left;
+}
+h4{
+    text-align: justify;
 }

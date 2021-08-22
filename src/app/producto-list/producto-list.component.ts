@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
 
@@ -34,12 +36,32 @@ export class ProductoListComponent implements OnInit {
   }
 
   deleteProducto(id: number){
-    if(confirm('Desea eliminar el Producto?')){
-      this.productoService.deleteProducto(id).subscribe(data => {
-        console.log(data);
-        this.getProductos();
-      });
-    }
+    Swal.fire({
+      title: 'Esta seguro?',
+      text: 'No podra recuperar la informacion despues',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, borralo',
+      cancelButtonText: 'No, dejalo'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productoService.deleteProducto(id).subscribe(data => {
+          console.log(data);
+          this.getProductos();
+        });
+        Swal.fire(
+          'Borrado!',
+          'El producto a sido borrado',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado!',
+          'El producto no se a borrado',
+          'error'
+        )
+      }
+    })
   }
 
   handlePage(e: PageEvent){

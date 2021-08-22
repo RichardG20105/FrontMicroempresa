@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 import { Puntoventa } from '../puntoventa'
 import { PuntoventaService } from '../puntoventa.service';
 
@@ -31,13 +33,32 @@ export class PuntoventaListComponent implements OnInit {
   }
 
   deletePuntoventa(id: number){
-    if(confirm('Desea eliminar el Punto de Venta?')){
-      this.puntoventaService.deletePuntoventa(id).subscribe( data => {
-        console.log(data);
-        this.getPuntoVenta();
-      });
-    }
-    
+    Swal.fire({
+      title: 'Esta seguro?',
+      text: 'No podra recuperar la informacion despues',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, borralo',
+      cancelButtonText: 'No, dejalo'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.puntoventaService.deletePuntoventa(id).subscribe( data => {
+          console.log(data);
+          this.getPuntoVenta();
+        });
+        Swal.fire(
+          'Borrado!',
+          'El punto de venta a sido borrado',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado!',
+          'El punto de venta no se a borrado',
+          'error'
+        )
+      }
+    })    
   }
 
   createPuntoventa(){
