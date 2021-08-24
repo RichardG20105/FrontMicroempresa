@@ -16,11 +16,18 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" [(ngModel)]="contrasenia" placeholder="contrase&ntilde;a">
+						<input  [type]="fieldTextType ? 'text' : 'password'" class="form-control" [(ngModel)]="contrasenia" placeholder="contraseña">
+						<div class="input-group-append">
+							<span class="input-group-text">
+							  <i
+								class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}" (click)="toggleFieldTextType()"></i>
+							</span>
+						  </div>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Cancelar" class="btn float-left btn-danger">
 						<button (click)=checkLogin() class="btn btn-success float-right login_btn">Ingresar</button>
+						
 					</div>
 			</div>
 		</div>

@@ -21,3 +21,8 @@ label{
 h4{
     text-align: justify;
 }
+
+.fa-eye-slash:hover,
+.fa-eye:hover {
+  cursor: pointer;
+}

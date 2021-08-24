@@ -23,8 +23,15 @@
 
                 <div class="form-group">
                     <h4>Contraseña:</h4>
-                    <input type="text" class="form-control mb-4" id="Contrasenia" formControlName="Contrasenia"
-                        [(ngModel)] = "administrador.contrasenia" name = "Contrasenia" placeholder="Contraseña" minlength="8">
+                    <div class="input-group">
+                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control mb-4" id="Contrasenia" formControlName="Contrasenia"
+                           [(ngModel)] = "administrador.contrasenia" name = "Contrasenia" placeholder="Contraseña" minlength="8">
+                        <div class="input-group-append">
+    					    <span class="input-group-text" style="height: 38px;">
+	    				    <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}" (click)="toggleFieldTextType()"></i>
+    					    </span>
+		    		    </div>  
+                    </div> 
                     <div *ngIf="Contrasenia.errors?.minlength" class="error-block">
                         <label>La contraseña debe ser de minimo 8 caracteres</label>
                     </div>    

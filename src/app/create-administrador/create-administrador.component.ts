@@ -15,6 +15,9 @@ export class CreateAdministradorComponent implements OnInit {
   administrador: Administrador = new Administrador();
   administradorForm!: FormGroup;
   administradorSubmit!: boolean;
+  
+  fieldTextType!: boolean;
+  repeatFieldTextType!: boolean;
 
   constructor(
     private administradorServicio: AdministradorService,
@@ -25,6 +28,14 @@ export class CreateAdministradorComponent implements OnInit {
 
   ngOnInit(): void {
     this.CreateAdministradorForm();
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  toggleRepeatFieldTextType() {
+    this.repeatFieldTextType = !this.repeatFieldTextType;
   }
 
   CreateAdministradorForm(){

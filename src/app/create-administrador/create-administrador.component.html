@@ -24,20 +24,29 @@
 
                 <div class="form-group">
                     <h4>Contraseña:</h4>
-                    <input type="text" class="form-control mb-4" id="Contrasenia" formControlName="Contrasenia"
-                        [(ngModel)] = "administrador.contrasenia" name = "Contrasenia" placeholder="Contraseña" minlength="8">
+                    
+                    <div class="input-group">
+                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control mb-4" id="Contrasenia" formControlName="Contrasenia"
+                            [(ngModel)] = "administrador.contrasenia" name = "Contrasenia" placeholder="Contraseña" minlength="8">
+                        <div class="input-group-append">
+    						<span class="input-group-text" style="height: 38px;">
+	    					  <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}" (click)="toggleFieldTextType()"></i>
+		    				</span>
+			    		</div>    
+                    </div>
                     <div *ngIf="Contrasenia.errors?.minlength" class="error-block">
                         <label>La contraseña debe ser de minimo 8 caracteres</label>
                     </div>
                     <div *ngIf="!Contrasenia.valid && (Contrasenia.touched || administradorSubmit)" class="error-block">
                         <label>Falta ingresar la contraseña</label>
-                    </div>        
+                    </div>     
                 </div>
-                <div class="container-button">
-                    <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
-                    <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToAdministradorList()">Cancelar</button>
-                </div> 
-            </div> 
+                 
+            <div class="form-group">
+                <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
+                <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToAdministradorList()">Cancelar</button>
+            </div>  
+            </div>  
         </div>       
     </form>
 </div>

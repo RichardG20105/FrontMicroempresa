@@ -33,3 +33,7 @@
   .container button{
       margin-top: 25px;
   }
+  .hide{
+      visibility: hidden;
+      background-color: transparent;
+  }

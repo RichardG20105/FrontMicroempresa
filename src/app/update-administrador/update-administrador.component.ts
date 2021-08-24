@@ -16,6 +16,8 @@ export class UpdateAdministradorComponent implements OnInit {
   administrador: Administrador = new Administrador();
   administradorForm!: FormGroup;
   administradorSubmit!: boolean;
+  fieldTextType!: boolean;
+  repeatFieldTextType!: boolean;
   
   constructor(
     private administradorServicio: AdministradorService,
@@ -39,6 +41,14 @@ export class UpdateAdministradorComponent implements OnInit {
       Usuario: [null, Validators.required],
       Contrasenia: [null, Validators.required]
     })
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  toggleRepeatFieldTextType() {
+    this.repeatFieldTextType = !this.repeatFieldTextType;
   }
 
   onSubmit(){

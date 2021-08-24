@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
 .row{
     padding-left: 20px;
     padding-right: 30px;
@@ -8,11 +9,11 @@
 }
 .container-button{
     border: none;
-    margin-top: 10%;
+    margin-bottom: 1px;
 }
 .container-form{
     padding-left: 30%;
-    padding-right: 30%;
+    padding-right: 10%;
     padding-top: 5%;
     padding-bottom: 5%;
 }
@@ -21,4 +22,8 @@ label{
 }
 h4{
     text-align: justify;
+}
+.fa-eye-slash:hover,
+.fa-eye:hover {
+  cursor: pointer;
 }

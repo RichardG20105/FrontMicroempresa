@@ -11,6 +11,9 @@ export class LoginComponent implements OnInit {
 
   usuario!: string;
   contrasenia!: string;
+  fieldTextType!: boolean;
+  repeatFieldTextType!: boolean;
+
   constructor(private login: AuthenticationService, private route: Router) { }
 
   ngOnInit(): void {
@@ -26,5 +29,13 @@ export class LoginComponent implements OnInit {
       this.route.navigate(['']);
     }
     return true;
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  toggleRepeatFieldTextType() {
+    this.repeatFieldTextType = !this.repeatFieldTextType;
   }
 }

@@ -15,11 +15,21 @@ export class AdministradorListComponent implements OnInit {
 
   administradores: Administrador[] = [];
 
+fieldTextType!: boolean;
+  repeatFieldTextType!: boolean;
   constructor(private administradorServicio: AdministradorService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.getAdministradores();
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  toggleRepeatFieldTextType() {
+    this.repeatFieldTextType = !this.repeatFieldTextType;
   }
 
   private getAdministradores(){
