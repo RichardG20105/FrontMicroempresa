@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 import { Administrador } from '../administrador';
 import { AdministradorService } from '../administrador.service'; 
+import { HttpErrorInterceptorService } from '../httperror-interceptor.service';
 
 @Component({
   selector: 'app-administrador-list',
@@ -15,8 +16,6 @@ export class AdministradorListComponent implements OnInit {
 
   administradores: Administrador[] = [];
 
-fieldTextType!: boolean;
-  repeatFieldTextType!: boolean;
   constructor(private administradorServicio: AdministradorService,
     private router: Router) { }
 
@@ -24,13 +23,6 @@ fieldTextType!: boolean;
     this.getAdministradores();
   }
 
-  toggleFieldTextType() {
-    this.fieldTextType = !this.fieldTextType;
-  }
-
-  toggleRepeatFieldTextType() {
-    this.repeatFieldTextType = !this.repeatFieldTextType;
-  }
 
   private getAdministradores(){
     this.administradorServicio.getAdministradoresList().subscribe(data => {
@@ -57,16 +49,19 @@ fieldTextType!: boolean;
       if (result.isConfirmed) {
         this.administradorServicio.deleteAdministrador(id).subscribe(data => {
           this.getAdministradores();
+          if(data){
+            Swal.fire(
+            'Eliminado!',
+            'El administrador ha sido borrado',
+            'success'
+            )
+          }
         });
-        Swal.fire(
-          'Borrado!',
-          'El administrador a sido borrado',
-          'success'
-        )
+        
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelado!',
-          'El administrador no se a borrado',
+          'El administrador no se ha borrado',
           'error'
         )
       }

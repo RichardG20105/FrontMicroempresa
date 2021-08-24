@@ -11,7 +11,9 @@
     margin-bottom: 10px;
 }
 .container table{
+
     text-align: center;
+    padding: 10px;
    }
    .table-striped tbody tr:nth-of-type(odd){
     background-color: rgb(237,245,245);
@@ -20,8 +22,15 @@
     background-color:rgba(204,204,204,95);
    }
     .thead-blue{
-   background-color: #0d23ec;
-   color: #FFFFFF;
+   background-color: #A37917;
+   color: black;
+   font-size:medium;
+
+   /*#9C8144
+   */
+  }
+  .table thead th{
+    border-bottom:1px;
   }
   #texto{
       font-size: 18px;
@@ -30,3 +39,15 @@
   .container button{
       margin-top: 25px;
   }
+  .hide{
+      visibility: hidden;
+      background-color: transparent;
+  }
+.btn-primary{
+    background-color: #FBD16E;
+    border-color: #D6B25E;
+    color: #000000;
+}
+.text-center{
+    color: white;
+}

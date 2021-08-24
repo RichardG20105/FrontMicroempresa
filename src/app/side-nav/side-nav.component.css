@@ -1,6 +1,6 @@
 .sidenav {
     background: #ec250d;
-    background: linear-gradient(0deg, #0d23ec 0, #78c3e6b2 100%);
+    background: linear-gradient(0deg, #FBBB24 0, #C7941C 100%);
     /* height: calc(100vh - 90 px);*/
     height: 100%;
     width: 230px;
@@ -46,11 +46,12 @@
     padding: 0.5rem 0;
     display: block;
     white-space: nowrap;
-    color: #ffffff;
+    color: #ffff;
     text-decoration: none;
     font-weight: 400;
     line-height: 30px;
     overflow: hidden;
+    text-align: center;
 }
 .logo-img img{
     width: 35px;
