@@ -22,3 +22,6 @@ a.sidenav-button:hover{
 .navbar .photo img{
     width: 100%;
 }
+.navbar-brand{
+    color:black;
+}
