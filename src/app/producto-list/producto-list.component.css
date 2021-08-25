@@ -51,3 +51,8 @@
 .text-center{
     color: white;
 }
+
+.mat-paginator{
+    background-color: #A37917;
+    color: black;
+}

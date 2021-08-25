@@ -22,7 +22,7 @@
     background-color:rgba(204,204,204,95);
    }
     .thead-blue{
-   background-color: #A37917;
+   background-color: #C2901B;
    color: black;
    font-size:medium;
 
@@ -50,4 +50,8 @@
 }
 .text-center{
     color: white;
+}
+.mat-paginator{
+    background-color: #B38419;
+    color: black;
 }

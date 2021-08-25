@@ -83,3 +83,10 @@ border-radius: 0px;
     text-align: center;
     font-size: 20px;
 }
+.mat-drawer-side{
+    border:none;
+}
+
+.mat-drawer{
+    background-color: transparent !important;
+}
