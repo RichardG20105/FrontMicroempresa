@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import { CustomMatPaginatorIntl } from './paginato-es';
 import { AlertifyService } from './alertify.service';
 import { HttpErrorInterceptorService } from './httperror-interceptor.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { HttpErrorInterceptorService } from './httperror-interceptor.service';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgbModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS,

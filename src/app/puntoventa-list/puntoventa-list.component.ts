@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -65,11 +64,7 @@ export class PuntoventaListComponent implements OnInit {
     this.router.navigate(['create-puntoventa']);
   }
 
-  handlePage(e: PageEvent){
-    this.page_size = e.pageSize
-    this.page_number = e.pageIndex + 1
-  }
-  page_size: number = 5
-  page_number: number = 1
+  page = 1
+  pageSize = 5
   pageSizeOptions = [5, 10, 20, 50, 100]
 }

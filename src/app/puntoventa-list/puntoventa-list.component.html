@@ -4,9 +4,6 @@
 </div>
 <div class="row" style="height: 450px;">
 <div class="container table">
-    <mat-paginator style="height: 60px;" [length]="puntoventas.length" [pageSize]="page_size" 
-            [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)" showFirstLastButtons>
-        </mat-paginator>
     <table class = "table table-striped table-hover">
         <thead class="thead-blue">
             <tr>
@@ -17,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor = "let puntoventa of puntoventas" >
+            <tr *ngFor = "let puntoventa of puntoventas | slice: (page-1) * pageSize : page * pageSize">
                 <td id="texto"> {{puntoventa.nombrePventa}} </td>
                 <td id="texto"> {{puntoventa.direccionPventa}} </td>
                 <td id="texto"> {{puntoventa.ciudadPventa}} </td>
@@ -30,6 +27,7 @@
             </tr>
         </tbody>
     </table>
+    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="puntoventas.length" [(page)]="page" [pageSize]="pageSize" [boundaryLinks]="true"></ngb-pagination>
 </div>
 </div>
 

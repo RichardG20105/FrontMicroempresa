@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -67,12 +68,7 @@ export class AdministradorListComponent implements OnInit {
       }
     })
   }
-
-  handlePage(e: PageEvent){
-    this.page_size = e.pageSize
-    this.page_number = e.pageIndex + 1
-  }
-  page_size: number = 5
-  page_number: number = 1
+  page = 1
+  pageSize = 5
   pageSizeOptions = [5, 10, 20, 50, 100]
 }

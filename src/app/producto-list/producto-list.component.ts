@@ -63,12 +63,8 @@ export class ProductoListComponent implements OnInit {
       }
     })
   }
-
-  handlePage(e: PageEvent){
-    this.page_size = e.pageSize
-    this.page_number = e.pageIndex + 1
-  }
-  page_size: number = 5
-  page_number: number = 1
+  
+  page = 1
+  pageSize = 5
   pageSizeOptions = [5, 10, 20, 50, 100]
 }

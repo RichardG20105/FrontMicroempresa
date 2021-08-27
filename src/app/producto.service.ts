@@ -22,7 +22,7 @@ export class ProductoService {
   }
 
   subirImagen(file: FormData):Observable<Object>{
-    return this.httpClient.post(`${this.baseUrl}`+'subirImagen',file);
+    return this.httpClient.post(`${this.baseUrl}`+'subirImagen/',file);
   }
 
   getProductoId(id: number): Observable<Producto>{
