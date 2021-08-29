@@ -1,24 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
 .row{
     padding-left: 20px;
     padding-right: 30px;
 }
 .container-inputs{
     border:none;
-    padding: 10%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 5%;
 }
 .container-button{
     border: none;
-    margin-top: 10%;
+    margin-bottom: 5%;
 }
 .container-form{
     padding-left: 30%;
-    padding-right: 30%;
+    padding-right: 10%;
     padding-top: 5%;
-    padding-bottom: 5%;
+    padding-bottom: 5px;
 }
 label{
-    text-align: left;
+    text-align: justify;
 }
 h4{
     text-align: justify;
+}
+p{
+    padding-top: 5%;
 }

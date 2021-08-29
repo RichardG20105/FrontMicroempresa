@@ -1,8 +1,7 @@
-
-<div class="container-form">
-    <form class="text-center border p-5 bg-light" (ngSubmit) = "onSubmit()" [formGroup]="administradorForm">
-        <p class="h4 mb-4">Crear Administrador</p>
-        <div class="row" style="height: 410px;">
+<div class="row" style="height: 740px;">
+    <div class="container-form">
+        <form class="bg-light" (ngSubmit) = "onSubmit()" [formGroup]="administradorForm">
+            <p class="text-center h4">Crear Administrador</p>
             <div class="container-inputs">
                 <div class="form-group">
                     <h4>Nombre:</h4>
@@ -12,7 +11,6 @@
                         <label>Falta ingresar el nombre del administrador</label>
                     </div>
                 </div>
-            
                 <div class="form-group">
                     <h4>Usuario:</h4>
                     <input type="text" class="form-control mb-4" id="Usuario" formControlName="Usuario"
@@ -21,10 +19,8 @@
                         <label>Falta ingresar el nombre de usuario</label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <h4>Contraseña:</h4>
-                    
                     <div class="input-group">
                         <input [type]="fieldTextType ? 'text' : 'password'" class="form-control mb-4" id="Contrasenia" formControlName="Contrasenia"
                             [(ngModel)] = "administrador.contrasenia" name = "Contrasenia" placeholder="Contraseña" minlength="8">
@@ -42,11 +38,11 @@
                     </div>     
                 </div>
                  
-            <div class="form-group">
-                <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
-                <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToAdministradorList()">Cancelar</button>
+                <div class="text-center form-group">
+                    <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
+                    <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToAdministradorList()">Cancelar</button>
+                </div>  
             </div>  
-            </div>  
-        </div>       
-    </form>
+        </form>
+    </div> 
 </div>

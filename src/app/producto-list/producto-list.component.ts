@@ -38,7 +38,7 @@ export class ProductoListComponent implements OnInit {
   deleteProducto(id: number){
     Swal.fire({
       title: 'Esta seguro?',
-      text: 'No podra recuperar la informacion despues',
+      text: 'No podra recuperar la información despues',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si, borralo',
@@ -51,13 +51,13 @@ export class ProductoListComponent implements OnInit {
         });
         Swal.fire(
           'Borrado!',
-          'El producto a sido borrado',
+          'El producto ha sido borrado',
           'success'
         )
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelado!',
-          'El producto no se a borrado',
+          'El producto no se ha borrado',
           'error'
         )
       }

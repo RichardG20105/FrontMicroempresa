@@ -4,11 +4,12 @@
         <div class="row" style="height: 410px;">
         <div class="container-inputs">
             <div class="form-group">
+                <p class="text-justify font-weight-normal mb-4">Nombre:</p>
                 <input type="text" class="form-control mb-4" id="NombreProducto" 
                 [(ngModel)]="producto.nombreProducto" name="NombreProducto" placeholder="Nombre del Producto">
             </div>
             <div class="form-group">
-                <p class="text-justify font-weight-normal mb-4">Foto del Producto</p>
+                <p class="text-justify font-weight-normal mb-4">Foto del Producto:</p>
                 <input type="file" id="file" name="FotoProducto" class="form-control" (change)="onFileChanged($event)">
             </div>
         </div>
