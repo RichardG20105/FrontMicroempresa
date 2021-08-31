@@ -1,30 +1,30 @@
-<div class="container-form">
-    <form class="text-center border p-5 bg-light" (ngSubmit) = "onSubmit()" method="POST" enctype="multipart/form-data" [formGroup]="productoForm">
-        <p class="h4 mb-4">Crear Producto</p>
-        <div class="row" style="height: 410px;">
+<div class="row" style="height: 660px;">
+    <div class="container-form">
+    <form class="bg-light" (ngSubmit) = "onSubmit()" method="POST" enctype="multipart/form-data" [formGroup]="productoForm">
+        <p class="text-center h4">Crear Producto</p>
             <div class="container-inputs">
                 <div class="form-group">
-                    <p class="text-justify font-weight-normal mb-4">Nombre:</p>
-                    <input type="text" class="form-control" formControlName="NombreProducto"
+                    <h4>Nombre:</h4>
+                    <input type="text" class="form-control mb-4" formControlName="NombreProducto"
                         [(ngModel)]="producto.nombreProducto" placeholder="Nombre del Producto">
-                    <span *ngIf="!NombreProducto.valid && (NombreProducto.touched || productoSubmit)" class="error-block">
-                    Falta ingresar el nombre del producto
-                    </span>
+                    <div *ngIf="!NombreProducto.valid && (NombreProducto.touched || productoSubmit)" class="error-block">
+                        <label>Falta ingresar el nombre del producto</label>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <p class="text-justify font-weight-normal mb-4">Foto del Producto:</p>
-                    <input type="file" id="file" name="FotoProducto" class="form-control"
+                    <h4>Foto del Producto:</h4>
+                    <input type="file" id="file" name="FotoProducto mb-4" class="form-control"
                         formControlName="FotoProducto" (change)="onFileChanged($event)">
-                    <span *ngIf="!FotoProducto.valid && (FotoProducto.touched || productoSubmit)" class="error-block">
-                    No se a subido ninguna imagen
-                    </span>
+                    <div *ngIf="!FotoProducto.valid && (FotoProducto.touched || productoSubmit)" class="error-block">
+                        <label>No se ha subido ninguna imagen</label> 
+                    </div>
+                </div>
+                <div class="text-center form-group">
+                    <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
+                    <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToProductoList()">Cancelar</button>
                 </div>
             </div>
-                <div class="container-button">
-                    <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
-                <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToProductoList()">Cancelar</button>
-        </div>
+        </form>
     </div>
-    </form>
 </div>
 

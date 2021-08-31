@@ -1,22 +1,29 @@
+<div class="row" style="height: 660px;">
 <div class="container-form">
-    <form class="text-center border p-5 bg-light" (ngSubmit) = "onSubmit()" method="POST" enctype="multipart/form-data">
-        <p class="h4 mb-4">Modificar Producto</p>
-        <div class="row" style="height: 410px;">
+    <form class="bg-light" (ngSubmit) = "onSubmit()" method="POST" enctype="multipart/form-data" [formGroup]="productoForm">
+        <p class="text-center h4">Modificar Producto</p>
         <div class="container-inputs">
             <div class="form-group">
-                <p class="text-justify font-weight-normal mb-4">Nombre:</p>
-                <input type="text" class="form-control mb-4" id="NombreProducto" 
-                [(ngModel)]="producto.nombreProducto" name="NombreProducto" placeholder="Nombre del Producto">
+                <h4>Nombre:</h4>
+                <input type="text" class="form-control mb-4" id="NombreProducto" formControlName="NombreProducto"
+                    [(ngModel)]="producto.nombreProducto" name="NombreProducto" placeholder="Nombre del Producto">
+                <div *ngIf="!NombreProducto.valid && (NombreProducto.touched || productoSubmit)" class="error-block">
+                    <label>Falta ingresar el nombre del producto</label>
+                </div>
             </div>
             <div class="form-group">
-                <p class="text-justify font-weight-normal mb-4">Foto del Producto:</p>
-                <input type="file" id="file" name="FotoProducto" class="form-control" (change)="onFileChanged($event)">
+                <h4>Foto del Producto:</h4>
+                <input type="file" id="file" name="FotoProducto mb-4" class="form-control"
+                 formControlName="FotoProducto" (change)="onFileChanged($event)">
+                <div *ngIf="!FotoProducto.valid && (FotoProducto.touched || productoSubmit)" class="error-block">
+                    <label>No se ha subido ninguna imagen</label> 
+                </div>
             </div>
-        </div>
-        <div class="container-button">
-            <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
-            <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToProductoList()">Cancelar</button>
-        </div>
+                <div class="text-center form-group">
+                    <button class="btn btn-success pull-left" style="margin-left: 10px" type="submit">Guardar</button>
+                    <button class="btn btn-danger pull-right" style="margin-left: 10px;" type="reset" (click)="goToProductoList()">Cancelar</button>
+                </div>
+            </div>
+        </form>   
     </div>
-    </form>    
 </div>

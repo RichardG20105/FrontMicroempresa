@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertifyService } from '../alertify.service';
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
 
@@ -13,14 +15,29 @@ export class UpdateProductoComponent implements OnInit {
   producto: Producto = new Producto();
   imagenSeleccionada!: File;
   id!: number;
-  constructor(private productoService: ProductoService,
-    private route: ActivatedRoute, private router: Router) { }
+  productoForm!: FormGroup;
+  productoSubmit!: boolean;
+  constructor(
+    private productoService: ProductoService,
+    private router: Router,
+    private route: ActivatedRoute, 
+    private fb: FormBuilder, 
+    private alertify: AlertifyService
+  ) { }
 
   ngOnInit(): void {
+    this.CreateProductoForm();
     this.id = this.route.snapshot.params['id'];
     this.productoService.getProductoId(this.id).subscribe(data => {
       this.producto = data;
     }, error => console.log(error));
+  }
+
+  CreateProductoForm(){
+    this.productoForm = this.fb.group({
+        NombreProducto: [null, Validators.required],
+        FotoProducto: [null, Validators.required]
+    })
   }
 
   onFileChanged(event: any){
@@ -31,7 +48,15 @@ export class UpdateProductoComponent implements OnInit {
 
   onSubmit(){
     console.log(this.producto);
-    this.updateProducto();
+    this.productoSubmit = true
+    if(this.productoForm.valid){
+      this.updateProducto();
+    }
+  }
+
+  onReset(){
+    this.productoSubmit = false;
+    this.productoForm.reset();
   }
 
   updateProducto(){
@@ -43,11 +68,20 @@ export class UpdateProductoComponent implements OnInit {
       },error => console.log(error));
     }
     this.productoService.updateProducto(this.id, this.producto).subscribe(data => {
+      this.onReset();
+      this.alertify.success('Producto Registrado')
       this.goToProductoList();
     }, error => console.log(error));
   }
 
   goToProductoList(){
     this.router.navigate(['productos']);
+  }
+
+  get NombreProducto(){
+    return this.productoForm.get('NombreProducto') as FormControl;
+  }
+  get FotoProducto(){
+    return this.productoForm.get('FotoProducto') as FormControl;
   }
 }
