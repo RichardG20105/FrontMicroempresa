@@ -9,27 +9,27 @@ import { environment } from 'src/environments/environment';
 })
 export class PuntoventaService {
 
-  private baseURL = environment.apiBaseUrl+"/PuntoVenta/";
+  private baseURL = environment.apiBaseUrl;
   constructor(private httpClient: HttpClient) { }
 
   getPuntoVentaLista(): Observable<Puntoventa[]>{
-    return this.httpClient.get<Puntoventa[]>(`${this.baseURL}`+'buscarPuntoVenta');
+    return this.httpClient.get<Puntoventa[]>(`${this.baseURL}`+'/PuntoVenta/buscarPuntoVenta');
   }
 
   createPuntoVenta(puntoventa: Puntoventa): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`+'crearPuntoVenta', puntoventa);
+    return this.httpClient.post(`${this.baseURL}`+'/PuntoVenta/crearPuntoVenta', puntoventa);
   }
 
   getPuntoventaId(id: number): Observable<Puntoventa>{
-    return this.httpClient.get<Puntoventa>(`${this.baseURL}`+'buscarPuntoVentaId/'+`${id}`);
+    return this.httpClient.get<Puntoventa>(`${this.baseURL}`+'/PuntoVenta/buscarPuntoVentaId/'+`${id}`);
   }
 
   updatePuntoventa(id: number, puntoventa: Puntoventa): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}`+'modificarPuntoVenta/'+`${id}`, puntoventa);
+    return this.httpClient.put(`${this.baseURL}`+'/PuntoVenta/modificarPuntoVenta/'+`${id}`, puntoventa);
   }
 
   deletePuntoventa(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}`+'borrarPuntoVenta/'+`${id}`);
+    return this.httpClient.delete(`${this.baseURL}`+'/PuntoVenta/borrarPuntoVenta/'+`${id}`);
   }
 
 }

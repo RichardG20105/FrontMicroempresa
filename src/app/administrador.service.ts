@@ -7,32 +7,31 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AdministradorService {
-  
-  private baseUrl = environment.apiBaseUrl+"/Administrador/";
+  private baseUrl = environment.apiBaseUrl;
 
   constructor( private httpClient: HttpClient) { }
 
   getAdministradoresList(): Observable<Administrador[]>{
-    return this.httpClient.get<Administrador[]>(`${this.baseUrl}`+'buscarAdministrador');
+    return this.httpClient.get<Administrador[]>(`${this.baseUrl}`+'/Administrador/buscarAdministrador');
   }
 
   createAdministrador(administrador: Administrador): Observable<Object>{
-    return this.httpClient.post(`${this.baseUrl}`+'crearAdministrador',administrador);
+    return this.httpClient.post(`${this.baseUrl}`+'/Administrador/crearAdministrador',administrador);
   }
 
   getAdministradorId(id: number): Observable<Administrador>{
-    return this.httpClient.get<Administrador>(`${this.baseUrl}`+'buscarAdministradorId/'+`${id}`);
+    return this.httpClient.get<Administrador>(`${this.baseUrl}`+'/Administrador/buscarAdministradorId/'+`${id}`);
   }
 
   getAdministradorSesion(usuario: string,contrasenia: string): Observable<Administrador>{
-    return this.httpClient.get<Administrador>(`${this.baseUrl}`+'accesoLogin/'+`${usuario}`+'/'+`${contrasenia}`);    
+    return this.httpClient.get<Administrador>(`${this.baseUrl}`+'/Administrador/accesoLogin/'+`${usuario}`+'/'+`${contrasenia}`);    
   }
 
   updateAdministrador(id: number, administrador: Administrador): Observable<Object>{
-    return this.httpClient.put(`${this.baseUrl}`+'modificarAdministrador/'+`${id}`,administrador);
+    return this.httpClient.put(`${this.baseUrl}`+'/Administrador/modificarAdministrador/'+`${id}`,administrador);
   }
 
   deleteAdministrador(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseUrl}`+'borrarAdministrador/'+`${id}`);
+    return this.httpClient.delete(`${this.baseUrl}`+'/Administrador/borrarAdministrador/'+`${id}`);
   }
 }
