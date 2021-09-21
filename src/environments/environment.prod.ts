@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseURL: 'htpps://backproductossan.herokuapp.com'
+  apiBaseURL: 'https://backproductossan.herokuapp.com'
 };
