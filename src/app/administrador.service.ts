@@ -7,31 +7,31 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AdministradorService {
-  private baseUrl = environment.apiBaseUrl;
+  private apiServerURL = environment.apiBaseUrl;
 
   constructor( private httpClient: HttpClient) { }
 
   getAdministradoresList(): Observable<Administrador[]>{
-    return this.httpClient.get<Administrador[]>(`${this.baseUrl}`+'/Administrador/buscarAdministrador');
+    return this.httpClient.get<Administrador[]>(`${this.apiServerURL}/Administrador/buscarAdministrador`);
   }
 
   createAdministrador(administrador: Administrador): Observable<Object>{
-    return this.httpClient.post(`${this.baseUrl}`+'/Administrador/crearAdministrador',administrador);
+    return this.httpClient.post(`${this.apiServerURL}/Administrador/crearAdministrador`,administrador);
   }
 
   getAdministradorId(id: number): Observable<Administrador>{
-    return this.httpClient.get<Administrador>(`${this.baseUrl}`+'/Administrador/buscarAdministradorId/'+`${id}`);
+    return this.httpClient.get<Administrador>(`${this.apiServerURL}/Administrador/buscarAdministradorId/${id}`);
   }
 
   getAdministradorSesion(usuario: string,contrasenia: string): Observable<Administrador>{
-    return this.httpClient.get<Administrador>(`${this.baseUrl}`+'/Administrador/accesoLogin/'+`${usuario}`+'/'+`${contrasenia}`);    
+    return this.httpClient.get<Administrador>(`${this.apiServerURL}/Administrador/accesoLogin/${usuario}/${contrasenia}`);    
   }
 
   updateAdministrador(id: number, administrador: Administrador): Observable<Object>{
-    return this.httpClient.put(`${this.baseUrl}`+'/Administrador/modificarAdministrador/'+`${id}`,administrador);
+    return this.httpClient.put(`${this.apiServerURL}/Administrador/modificarAdministrador/${id}`,administrador);
   }
 
   deleteAdministrador(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseUrl}`+'/Administrador/borrarAdministrador/'+`${id}`);
+    return this.httpClient.delete(`${this.apiServerURL}/Administrador/borrarAdministrador/${id}`);
   }
 }
