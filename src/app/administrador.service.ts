@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AdministradorService {
-  private apiServerURL = environment.apiBaseUrl;
+  private apiServerURL = 'https://back-productossan.herokuapp.com';
 
   constructor( private httpClient: HttpClient) { }
 
