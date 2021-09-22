@@ -16,7 +16,6 @@ export class AuthenticationService {
       this.habilitar();
     },
     error => console.log(error))
-    console.log(sessionStorage)
   }
   
   habilitar(){

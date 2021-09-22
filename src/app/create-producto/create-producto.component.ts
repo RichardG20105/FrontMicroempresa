@@ -34,7 +34,6 @@ export class CreateProductoComponent implements OnInit {
     })
   }
   onSubmit(){
-    console.log(this.producto);
     this.productoSubmit = true
     if(this.productoForm.valid){
       this.saveProducto();
@@ -50,11 +49,9 @@ export class CreateProductoComponent implements OnInit {
     const imagenSubir = new FormData();
     imagenSubir.append('file',this.imagenSeleccionada);
     this.productoService.subirImagen(imagenSubir).subscribe(data =>{
-      console.log(data);
     },error => console.log(error));
 
     this.productoService.createProducto(this.producto).subscribe(data =>{
-      console.log(data);
       this.onReset();
       this.alertify.success('Producto Registrado')
       this.goToProductoList();

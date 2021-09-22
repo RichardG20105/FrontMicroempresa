@@ -42,7 +42,6 @@ export class PuntoventaListComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.puntoventaService.deletePuntoventa(id).subscribe( data => {
-          console.log(data);
           this.getPuntoVenta();
         });
         Swal.fire(

@@ -47,7 +47,6 @@ export class UpdateProductoComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.producto);
     this.productoSubmit = true
     if(this.productoForm.valid){
       this.updateProducto();

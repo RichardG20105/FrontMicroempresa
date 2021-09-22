@@ -36,7 +36,6 @@ export class CreatePuntoventaComponent implements OnInit {
   }
   savePuntoventa(){
     this.puntoventaService.createPuntoVenta(this.puntoventa).subscribe( data =>{
-      console.log(data);
       this.onReset();
       this.alertify.success('Punto de venta creado')
       this.goToPuntoventaList();
@@ -49,7 +48,6 @@ export class CreatePuntoventaComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.puntoventa);
     this.puntoVentaSubmit = true;
     if(this.puntoVentaForm.valid){
       this.savePuntoventa();

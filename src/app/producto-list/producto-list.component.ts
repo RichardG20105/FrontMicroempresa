@@ -46,7 +46,6 @@ export class ProductoListComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.productoService.deleteProducto(id).subscribe(data => {
-          console.log(data);
           this.getProductos();
         });
         Swal.fire(

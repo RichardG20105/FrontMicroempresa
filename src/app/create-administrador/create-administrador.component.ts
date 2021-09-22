@@ -47,7 +47,6 @@ export class CreateAdministradorComponent implements OnInit {
   }
   saveAdministrador(){
     this.administradorServicio.createAdministrador(this.administrador).subscribe(data =>{
-      console.log(data);
       this.onReset();
       this.alertify.success('Administrador creado')
       this.goToAdministradorList();
@@ -60,7 +59,6 @@ export class CreateAdministradorComponent implements OnInit {
   }
   
   onSubmit(){
-    console.log(this.administrador);
     this.administradorSubmit = true
     if(this.administradorForm.valid){
       this.saveAdministrador();

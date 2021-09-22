@@ -54,7 +54,6 @@ export class UpdateAdministradorComponent implements OnInit {
   onSubmit(){
     if(this.administradorForm.valid){
       this.administradorServicio.updateAdministrador(this.id, this.administrador).subscribe(data =>{
-        console.log(data)
         this.alertify.success('Se modifico el Administrador')
         this.onReset()
         this.goToAdministradorList();
