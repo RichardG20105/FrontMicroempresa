@@ -9,7 +9,7 @@ import { Producto } from './producto';
 })
 export class ProductoService {
 
-  private apiServerURL = environment.apiBaseUrl;
+  private apiServerURL = 'https://back-productossan.herokuapp.com';
 
   
   constructor(private httpClient: HttpClient) { }

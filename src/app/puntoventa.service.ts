@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PuntoventaService {
 
-  private apiServerURL = environment.apiBaseUrl;
+  private apiServerURL = 'https://back-productossan.herokuapp.com';
   constructor(private httpClient: HttpClient) { }
 
   getPuntoVentaLista(): Observable<Puntoventa[]>{

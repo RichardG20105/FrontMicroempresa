@@ -15,7 +15,7 @@
         <tbody>
             <tr *ngFor = "let producto of productos | slice: (page-1) * pageSize : page * pageSize">
                 <td id="texto"> {{ producto.nombreProducto }} </td>
-                <td> <a href="#"><img src="{{ 'http://localhost:8080/uploads/'+producto.fotoProducto}}" style="height: 100px; width: 200px;"></a></td>
+                <td> <a href="#"><img src="{{ 'https://back-productossan.herokuapp.com/uploads/'+producto.fotoProducto}}" style="height: 100px; width: 200px;"></a></td>
                 <td >
                     <div class="container button">
                         <button (click) = "updateProducto(producto.idProducto)" class = "btn btn-info" style="margin-left: 10px"><mat-icon>edit</mat-icon></button>
